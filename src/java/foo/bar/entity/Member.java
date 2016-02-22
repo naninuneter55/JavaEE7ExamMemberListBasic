@@ -6,10 +6,14 @@
 package foo.bar.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -19,21 +23,22 @@ import javax.persistence.Id;
 public class Member implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
+    @Id @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
+    @NotNull
     private String name;
-
+    @Temporal(TemporalType.DATE)
+    private Date birthday;
+    private int gender;
+    
     public Member() {
-        
     }
-    public Member(String name){
+
+    public Member(String name, Date birthday, int gender){
         this.name = name;
-    }
-    public Member(Integer id, String name){
-        this.id = id;
-        this.name = name;
+        this.birthday = birthday;
+        this.gender = gender;
     }
       
     public Integer getId() {
@@ -50,6 +55,22 @@ public class Member implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 
     @Override
