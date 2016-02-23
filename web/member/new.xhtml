@@ -10,17 +10,20 @@
         <h1>メンバー登録</h1>
         <h:form>
             <hr/>
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="3">
                 <h:outputText value="氏名"/>
-                <h:inputText value="#{memberNew.name}" />
+                <h:inputText value="#{memberNew.name}" id="name" rendered="true" label="氏名"/>
+                <h:message for="name"/>
                 <h:outputText value="生年月日"/>
                 <h:inputText value="#{memberNew.birthday}">
                     <f:convertDateTime pattern="yyyy/M/d"/>
                 </h:inputText>
+                <h:message for=""/>
                 <h:selectOneRadio value="#{memberNew.gender}">
                     <f:selectItem itemValue="1" itemLabel="男性"/>
                     <f:selectItem itemValue="2" itemLabel="女性"/>
                 </h:selectOneRadio>
+                <h:message for=""/>
             </h:panelGrid>
             <hr/>
             <h:commandButton value="送信" action="#{memberNew.regist()}"/>
