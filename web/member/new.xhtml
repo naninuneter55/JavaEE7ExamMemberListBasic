@@ -17,6 +17,7 @@
                 <h:inputText value="#{memberNew.birthday}">
                     <f:convertDateTime pattern="yyyy/M/d"/>
                 </h:inputText>
+                <h:outputText value="性別"/>
                 <h:selectOneRadio value="#{memberNew.gender}">
                     <f:selectItem itemValue="1" itemLabel="男性"/>
                     <f:selectItem itemValue="2" itemLabel="女性"/>
