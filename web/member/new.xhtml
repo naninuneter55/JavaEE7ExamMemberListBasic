@@ -5,6 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>メンバー登録</title>
+        <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
     <h:body>
         <h1>メンバー登録</h1>
@@ -12,8 +13,8 @@
             <hr/>
             <h:panelGrid columns="3">
                 <h:outputText value="氏名"/>
-                <h:inputText value="#{memberNew.name}" id="name" rendered="true" label="氏名"/>
-                <h:message for="name"/>
+                <h:inputText value="#{memberNew.name}" id="name" required="true" label="氏名"/>
+                <h:message for="name" errorClass="err"/>
                 <h:outputText value="生年月日"/>
                 <h:inputText value="#{memberNew.birthday}">
                     <f:convertDateTime pattern="yyyy/M/d"/>
