@@ -11,21 +11,21 @@
         <h1>メンバー登録</h1>
         <h:form>
             <hr/>
-            <h:panelGrid columns="3">
+            <h:messages errorClass="err"/>
+            <h:panelGrid columns="2">
                 <h:outputText value="氏名"/>
-                <h:inputText value="#{memberNew.name}" id="name" required="true" label="氏名"/>
-                <h:message for="name" errorClass="err"/>
+                <h:inputText value="#{memberNew.name}" id="name" label="氏名"/>
+
                 <h:outputText value="生年月日"/>
-                <h:inputText value="#{memberNew.birthday}">
+                <h:inputText value="#{memberNew.birthday}" id="birthday" required="false" label="生年月日">
                     <f:convertDateTime pattern="yyyy/M/d"/>
                 </h:inputText>
-                <h:message for=""/>
+
                 <h:outputText value="性別"/>
-                <h:selectOneRadio value="#{memberNew.gender}">
+                <h:selectOneRadio value="#{memberNew.gender}" id="gender" required="false" label="性別">
                     <f:selectItem itemValue="1" itemLabel="男性"/>
                     <f:selectItem itemValue="2" itemLabel="女性"/>
                 </h:selectOneRadio>
-                <h:message for=""/>
             </h:panelGrid>
             <hr/>
             <h:commandButton value="送信" action="#{memberNew.regist()}"/>

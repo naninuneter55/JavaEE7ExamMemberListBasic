@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -26,7 +27,7 @@ public class Member implements Serializable {
     @Id @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @NotNull
+    @NotNull @Size(min=1, max=64)
     private String name;
     @Temporal(TemporalType.DATE)
     private Date birthday;

@@ -9,6 +9,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 @Named(value = "memberNew")
@@ -18,7 +19,7 @@ public class New {
     private Integer id;
     @NotNull @Size(min=1, max=64)
     private String name;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE) @Past
     private Date birthday;
     private int gender;
 
