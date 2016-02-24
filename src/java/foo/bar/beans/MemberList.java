@@ -1,4 +1,4 @@
-package foo.bar.beans.member;
+package foo.bar.beans;
 
 import foo.bar.ejb.MemberFacade;
 import foo.bar.entity.Member;
@@ -7,15 +7,15 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 
-@Named(value = "memberIndex")
+@Named
 @RequestScoped
-public class Index {
+public class MemberList {
 
     @EJB
-    MemberFacade memFacade;
+    MemberFacade memberFacade;
     
     public List<Member> getData() {
-        return memFacade.findAll();
+        return memberFacade.findAll();
     }
 
 }

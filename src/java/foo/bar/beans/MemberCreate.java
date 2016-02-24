@@ -1,4 +1,4 @@
-package foo.bar.beans.member;
+package foo.bar.beans;
 
 import foo.bar.ejb.MemberFacade;
 import foo.bar.entity.Member;
@@ -12,9 +12,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
-@Named(value = "memberNew")
+@Named
 @RequestScoped
-public class New {
+public class MemberCreate {
 
     private Integer id;
     @NotNull @Size(min=1, max=64)
@@ -24,15 +24,15 @@ public class New {
     private int gender;
 
     @EJB
-    MemberFacade memFacade;
+    MemberFacade memberFacade;
     
-    public New() {
+    public MemberCreate() {
     }
 
-    public void regist() {
+    public String create() {
         Member mem = new Member(getName(), getBirthday(), getGender());
-        memFacade.create(mem);
-        
+        memberFacade.create(mem);
+        return "list.xhtml";
     }
 
     public String getName() {
