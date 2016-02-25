@@ -38,6 +38,13 @@
                     <h:outputText rendered="#{item.gender == 1}" value="男性"/>
                     <h:outputText rendered="#{item.gender == 2}" value="女性"/>
                 </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="編集" />
+                    </f:facet>
+                    <h:commandLink action="#{memberEdit.form(item.id)}" value="編集"/>
+                </h:column>
+
             </h:dataTable>
         </h:form>
         <hr/>

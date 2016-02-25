@@ -42,6 +42,13 @@ public class Member implements Serializable {
         this.gender = gender;
     }
       
+    public Member(int id, String name, Date birthday, int gender){
+        this.id = id;
+        this.name = name;
+        this.birthday = birthday;
+        this.gender = gender;
+    }
+      
     public Integer getId() {
         return id;
     }
