@@ -1,6 +1,7 @@
 package foo.bar.beans;
 
 import foo.bar.ejb.MemberFacade;
+import java.io.Serializable;
 import java.util.Date;
 import javax.ejb.EJB;
 import javax.persistence.Temporal;
@@ -9,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
-abstract public class AbstractMemberForm {
+abstract public class AbstractMemberForm  implements Serializable{
 
     private Integer id;
     @NotNull @Size(min=1, max=64)

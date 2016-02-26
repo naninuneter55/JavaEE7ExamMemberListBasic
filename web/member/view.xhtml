@@ -12,16 +12,16 @@
         <hr/>
         <h:panelGrid columns="2">
             <h:outputText value="氏名"/>
-            <h:outputText value="#{memberView.name}"/>
+            <h:outputText value="#{memberView.member.name}"/>
 
             <h:outputText value="生年月日"/>
-            <h:outputText value="#{memberView.birthday}">
+            <h:outputText value="#{memberView.member.birthday}">
                 <f:convertDateTime pattern="yyyy/M/d"/>
             </h:outputText>
 
             <h:outputText value="性別"/>
-            <h:outputText rendered="#{memberView.gender == 1}" value="男性"/>
-            <h:outputText rendered="#{memberView.gender == 2}" value="女性"/>
+            <h:outputText rendered="#{memberView.member.gender == 1}" value="男性"/>
+            <h:outputText rendered="#{memberView.member.gender == 2}" value="女性"/>
         </h:panelGrid>
         <hr/>
         <h:link outcome="list.xhtml" value="戻る"/>

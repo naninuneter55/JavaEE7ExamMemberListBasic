@@ -21,7 +21,7 @@
                     <f:facet name="header">
                         <h:outputText value="氏名" />
                     </f:facet>
-                    <h:commandLink action="#{memberView.view(item.id)}" value="#{item.name}"/>
+                    <h:commandLink action="#{memberList.view(item)}" value="#{item.name}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
@@ -42,7 +42,7 @@
                     <f:facet name="header">
                         <h:outputText value="編集" />
                     </f:facet>
-                    <h:commandLink action="#{memberEdit.form(item.id)}" value="編集"/>
+                    <h:commandLink action="#{memberList.edit(item)}" value="編集"/>
                 </h:column>
 
             </h:dataTable>

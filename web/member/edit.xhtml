@@ -14,23 +14,22 @@
             <h:messages errorClass="err"/>
             <h:panelGrid columns="2">
                 <h:outputText value="ID"/>
-                <h:outputText value="#{memberEdit.id}"/>
+                <h:outputText value="#{memberEdit.member.id}"/>
 
                 <h:outputText value="氏名"/>
-                <h:inputText value="#{memberEdit.name}" id="name" label="氏名"/>
+                <h:inputText value="#{memberEdit.member.name}" id="name" label="氏名"/>
 
                 <h:outputText value="生年月日"/>
-                <h:inputText value="#{memberEdit.birthday}" id="birthday" required="false" label="生年月日">
+                <h:inputText value="#{memberEdit.member.birthday}" id="birthday" required="false" label="生年月日">
                     <f:convertDateTime pattern="yyyy/M/d"/>
                 </h:inputText>
 
                 <h:outputText value="性別"/>
-                <h:selectOneRadio value="#{memberEdit.gender}" id="gender" required="false" label="性別">
+                <h:selectOneRadio value="#{memberEdit.member.gender}" id="gender" required="false" label="性別">
                     <f:selectItem itemValue="1" itemLabel="男性"/>
                     <f:selectItem itemValue="2" itemLabel="女性"/>
                 </h:selectOneRadio>
             </h:panelGrid>
-            <h:inputHidden id="id" value="#{memberEdit.id}"/>
             <h:commandButton value="更新" action="#{memberEdit.edit()}"/>
         </h:form>
         <hr/>

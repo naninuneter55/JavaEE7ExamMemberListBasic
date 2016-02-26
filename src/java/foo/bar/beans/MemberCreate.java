@@ -1,19 +1,20 @@
 package foo.bar.beans;
 
 import foo.bar.entity.Member;
+import java.io.Serializable;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 
 @Named
-@RequestScoped
+@ViewScoped
 public class MemberCreate extends AbstractMemberForm{
-
+    
     public MemberCreate() {
     }
 
     public String create() {
-        Member mem = new Member(getName(), getBirthday(), getGender());
-        memberFacade.create(mem);
+        Member m = new Member(getName(), getBirthday(), getGender());
+        memberFacade.create(m);
         return "list.xhtml";
     }
 }

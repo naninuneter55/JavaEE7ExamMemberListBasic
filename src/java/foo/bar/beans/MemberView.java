@@ -2,19 +2,19 @@ package foo.bar.beans;
 
 import foo.bar.ejb.MemberFacade;
 import foo.bar.entity.Member;
-import java.util.Date;
+import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.view.ViewScoped;
 
 @Named
-@RequestScoped
-public class MemberView {
+@ViewScoped
+public class MemberView implements Serializable{
 
-    private Integer id;
-    private String name;
-    private Date birthday;
-    private int gender;
+    private Member member;
 
     @EJB
     MemberFacade memberFacade;
@@ -22,47 +22,20 @@ public class MemberView {
     public MemberView() {
     }
 
-    public String view(int id) {
-        System.out.println("##### id : " + id + " #####");
-        Member m = memberFacade.find(id);
-        setName(m.getName());
-        setBirthday(m.getBirthday());
-        setGender(m.getGender());
-        return "view.xhtml";
-    }
-    
-    public String getName() {
-        return name;
+    @PostConstruct
+    public void init(){
+        Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
+        Integer id = (Integer)flash.get("memberId");
+        System.out.println("=============== " + id);
+        member = memberFacade.find(id);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Member getMember() {
+        return member;
     }
 
-    public Integer getId() {
-        return id;
+    public void setMember(Member member) {
+        this.member = member;
     }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public int getGender() {
-        return gender;
-    }
-
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
-
-
 
 }
