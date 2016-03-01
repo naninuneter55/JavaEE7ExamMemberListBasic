@@ -25,13 +25,13 @@ public class MemberList  implements Serializable{
     public String view(Member m) {
         Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
         flash.put("memberId", m.getId());
-        return "view.xhtml";
+        return "view.xhtml?faces-redirect=true";
     }
 
     public String edit(Member m) {
         Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
         flash.put("memberId", m.getId());
-        return "edit.xhtml";
+        return "edit.xhtml?faces-redirect=true";
     }
 
 }

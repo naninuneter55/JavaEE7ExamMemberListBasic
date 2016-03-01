@@ -15,6 +15,6 @@ public class MemberCreate extends AbstractMemberForm{
     public String create() {
         Member m = new Member(getName(), getBirthday(), getGender());
         memberFacade.create(m);
-        return "list.xhtml";
+        return "list.xhtml?faces-redirect=true";
     }
 }

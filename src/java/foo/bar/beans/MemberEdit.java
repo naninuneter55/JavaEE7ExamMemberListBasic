@@ -31,7 +31,7 @@ public class MemberEdit implements Serializable{
     
     public String edit() {
         memberFacade.edit(member);
-        return "list.xhtml";
+        return "list.xhtml?faces-redirect=true";
     }
 
     public Member getMember() {
