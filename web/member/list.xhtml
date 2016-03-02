@@ -44,6 +44,12 @@
                     </f:facet>
                     <h:commandLink action="#{memberList.edit(item)}" value="編集"/>
                 </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="削除" />
+                    </f:facet>
+                    <h:commandLink action="#{memberList.delete(item)}" value="削除"/>
+                </h:column>
 
             </h:dataTable>
         </h:form>

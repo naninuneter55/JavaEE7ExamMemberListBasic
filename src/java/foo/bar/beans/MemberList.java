@@ -34,4 +34,9 @@ public class MemberList  implements Serializable{
         return "edit.xhtml?faces-redirect=true";
     }
 
+    public String delete(Member m) {
+        memberFacade.remove(m);
+        return "list.xhtml?faces-redirect=true";
+    }
+    
 }
